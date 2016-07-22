@@ -18,11 +18,13 @@ url = 'http://data.taipei/tcmsv/allavailable'
 response = urllib.request.urlopen(url)
 data = response.read()      # a `bytes` object
 data = gzip.decompress(data)
-
+data = data.decode("big5")
 """
 with open(data, "r") as f:
     text = f.read()
     text = text.decode('utf-8')
 """
 
-print(data)
+#print(data)
+
+text1 = json.loads(data)
